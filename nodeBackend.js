@@ -1,11 +1,11 @@
 const http = require('http');
 const fs = require('fs');
 
-// Liste der Server, die überwacht werden sollen
+// list of servers that are to be monitored
 const servers = [
   { hostname: 'localhost', port: 3000 },
   { hostname: 'localhost', port: 3001 }
-  // Füge hier weitere Server hinzu
+  // etc.
 ];
 
 let serverStatus = {};
@@ -24,7 +24,7 @@ servers.forEach((server, index) => {
 
     fs.writeFile('response.json', JSON.stringify(serverStatus, null, 2), err => {
       if (err) throw err;
-      console.log('Die Datei wurde gespeichert!');
+      // console.log('The file was saved!');
     });
   });
 
