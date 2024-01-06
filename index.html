@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Server Monitoring</title>
+<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+  <body>
+    <div class="container">
+      <div class="widget" id="server1">
+        <!-- Hier sollen die Daten von Server 1 hin -->
+      </div>
+      <div class="widget" id="server2">
+        <!-- Hier sollen die Daten von Server 2 hin -->
+      </div>
+        <!-- Weitere Widgets hier -->
+    </div>
+    <script>
+    function updateWidgets() {
+    fetch('response.json')
+    .then(response => response.json())
+    .then(data => {
+    document.getElementById('server1').textContent = `Ist Server 1 online? ${data.server1.online}`;
+    document.getElementById('server2').textContent = `Ist Server 2 online? ${data.server2.online}`;
+    });
+    }
+    setInterval(updateWidgets, 5000);
+    </script>
+  </body>
+</html>
